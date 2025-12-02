@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Shredder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              techno: {
+                acid: '#ccff00',   /* Acid Green/Yellow */
+                green: '#00ff41',  /* Terminal Green */
+                dark: '#050505',   /* Void Black */
+                gray: '#1a1a1a',   /* Industrial Gray */
+                metal: '#4a4a4a',  /* Metal */
+                strobe: '#ffffff'  /* Strobe White */
+              }
+            },
+            fontFamily: {
+              mono: ['Courier New', 'monospace'], // Keep mono for industrial feel
+              sans: ['Arial Black', 'Impact', 'sans-serif'],
+            },
+            animation: {
+              'pulse-fast': 'pulse 0.2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'strobe': 'strobe 0.1s steps(2, start) infinite',
+            },
+            keyframes: {
+              strobe: {
+                '0%': { opacity: '1' },
+                '100%': { opacity: '0.8' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #000000;
+        color: #e0e0e0;
+        overflow: hidden;
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333; 
+        border: 1px solid #ccff00;
+      }
+      .perspective-container {
+        perspective: 800px; /* Mais agressivo */
+        overflow: hidden;
+      }
+      .highway {
+        transform: rotateX(50deg); /* Angulo mais "chão de fábrica" */
+        transform-style: preserve-3d;
+      }
+      .scanline {
+        background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
+        background-size: 100% 4px;
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 50;
+        pointer-events: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
